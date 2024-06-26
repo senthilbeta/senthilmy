@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../Downloads/first"
+		},
+		{
+			"path": "../senthil/project"
+		},
+		{
+			"path": "../my project"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "my project"
+	}
+}
