@@ -1,0 +1,1127 @@
+<!-- <?php session_start();
+if(empty($_SESSION['password'])):
+    header('Location:alogin.php');
+endif;
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>s-Dashboard</title>
+
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: serif;
+        }
+        body{
+            background-color: #97FEED;
+        }
+        .body-container{
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+
+
+        }
+        /*------------------------********************************-------------------------*/
+
+
+        /*--------------------- nave-bar details----------------- */
+
+        .navebar{
+            background-color: #071952;
+            height: 100vh;
+            position: relative;
+            display: block;
+            display: grid;
+            grid-template-rows: 1fr 1fr 2fr;
+
+        }
+
+         .sub-link2{ 
+            width:200px;
+            line-height: 40px;
+            margin-left: 25px;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            position: absolute;
+            font-size: 18px;
+            text-align: center;
+            border-radius: 10px;
+        } 
+        .sub-link2:hover{
+            background-color: white;
+            color:  #97FEED;
+	    font-size:18px;
+            border-left: 5px solid red;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+		box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+
+        }
+        .sub-link1 a{ 
+            width:200px;
+            line-height: 40px;
+            margin-left: 25px;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            position: absolute;
+            font-size: 18px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+
+        .sub-link1 a:hover{
+            background-color: white;
+            color: #071952;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            border-left: 5px solid red;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+
+        }
+        .sub-link1 a:focus{
+            background-color:  #0B666A;
+            color: red;
+            border-left: 5px solid red;
+            border-radius: 5px;
+        }
+        /*------------------------********************************-------------------------*/
+
+
+        /*-----------------------dash-details-------------- */
+        #dashboard{
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+
+        }
+
+        #dashboard1{
+
+            margin: 10px;
+            background-color: #0B666A;
+            color: white;  
+            width: 140px;      
+            border-left: 5px solid red;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
+        .dashboard2{
+
+            background-color: #35A29F;
+            height: 50vh;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+
+
+        }
+        .dashboard3{
+
+            background-color: #35A29F;
+            margin: 10px;
+            height: 25vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            border-radius: 8px;
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+
+        }
+        .present{
+            height: 17vh;
+            background-color: white;
+            color: #071952;
+            margin: 25px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        }
+        .absent{
+            height: 17vh;
+            background-color: white;
+            color: #071952;
+            margin: 25px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+        }
+        .hours{
+            height: 17vh;
+            background-color: white;
+            color: #071952;
+            margin: 25px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+        }
+        /*------------------------********************************-------------------------*/
+
+
+        /*----------------department details-------------------*/
+
+        #department{
+            display: grid;
+            grid-template-rows: 1fr 2fr;
+        }
+        #department1{
+            background-color: #35A29F;
+            color: #F0F5F9;
+            width: 200px;
+            margin: 10px;
+            border-radius: 5px;
+            border-left: 5px solid red;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
+        #departments3{
+            height: 60vh;
+            background-color: #35A29F;
+            margin: 10px;
+            border-radius: 8px;
+            color: #F0F5F9;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; 
+        }
+        #bca1{
+           background-color: #bbbfca;
+           margin: 50px;
+           width:260px;
+           height: 20vh;
+           padding: 15px;
+           border-radius: 10px;
+        }
+        #date1 #report1{
+            margin-top: 40px;
+          padding: 10px;
+          width: 140px;
+          border-radius: 15px;
+          color: #52616B;
+          font-size: 20px;
+          font-weight: bolder;
+          border: none;
+          outline: none;
+
+        }
+        #date2{
+           background-color: #35A29F;
+           margin: 50px;
+           width:260px;
+           height: 20vh;
+           padding: 15px;
+           border-radius: 10px;
+
+
+        }
+        #date2 #report2{
+            margin-top: 40px;
+          padding: 10px;
+          width: 140px;
+          border-radius: 15px;
+          color: #52616B;
+          font-size: 20px;
+          font-weight: bolder;
+          border: none;
+          outline: none;
+
+        }
+        /*------------------------********************************-------------------------*/
+
+        /*----------------attendance details--------------*/
+
+        #attendance{
+            display: grid;
+            grid-template-rows: 1fr 2fr;
+        }
+        #attendance1{
+            background-color: #0B666A;
+            color: white;
+            width: 200px;
+            margin: 10px;
+            border-radius: 5px;
+            border-left: 5px solid red;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
+        #attendance2{
+            background-color: #35A29F;
+            margin: 10px;
+            border-radius: 8px;
+            color: #0B666A;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; 
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+        }
+         #attendance-bca, #attendance-mca, #attendance-msc, #attendance-bba, #attendance-che, #attendance-bcom{
+           background-color: white;
+           margin: 30px;
+           width:250px;
+           height: 20vh;
+           padding: 15px;
+           border-radius: 10px;
+           box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+        } 
+         #attendance-msc a{
+          margin-top: 40px;
+          margin-left: 25px;    
+          padding: 10px 40px;
+          width: 140px;
+          border-radius: 15px;
+          color: #97FEED;
+          font-size: 20px;
+          font-weight: bolder;
+          border: none;
+          outline: none;
+          background-color: #071952;
+          text-decoration: none;
+
+
+        }
+        #attendance-bca a{
+          margin-top: 100px;
+          margin-left: 25px;    
+          padding: 10px 40px;
+          border-radius: 15px;
+          color: #97FEED;
+          font-size: 20px;
+          font-weight: bolder;
+          border: none;
+          outline: none;
+          background-color: #071952;
+
+        }
+        #attendance-mca a{
+          margin-top: 40px;
+          margin-left: 25px;    
+          padding: 10px 40px;
+          border-radius: 15px;
+          color: #97FEED;
+          font-size: 20px;
+          font-weight: bolder;
+          border: none;
+          outline: none;
+          background-color: #071952;
+          text-decoration: none;
+
+         }       
+         #attendance-bba a{
+          margin-top: 40px;
+          margin-left: 25px;    
+          padding: 10px 40px;
+          border-radius: 15px;
+          color: #97FEED;
+          font-size: 20px;
+          font-weight: bolder;
+          border: none;
+          outline: none;
+          background-color: #071952;
+          text-decoration: none;
+         }       
+         #attendance-bcom a{
+          margin-top: 40px;
+          margin-left: 25px;    
+          padding: 10px 40px;
+          border-radius: 15px;
+          color: #97FEED;
+          font-size: 20px;
+          font-weight: bolder;
+          border: none;
+          outline: none;
+          background-color: #071952;
+          text-decoration: none;
+
+         }       
+         #attendance-che a{
+          margin-top: 40px;
+          margin-left: 25px;    
+          padding: 10px 40px;
+          border-radius: 15px;
+          color: #97FEED;
+          font-size: 20px;
+          font-weight: bolder;
+          border: none;
+          outline: none;
+          background-color: #071952;
+          text-decoration: none;
+
+         }       
+        
+        
+        /*------------------------********************************-------------------------*/
+      
+       #self{
+            position:absolute;
+
+       } 
+       .self{
+        height: 75vh;
+        width: 78vw;
+        background-color: #35A29F;
+        margin: 10px;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+       }
+
+       #self1{
+            background-color: #0B666A;
+            color: white;
+            width: 140px;
+            margin: 10px;
+            border-radius: 5px;
+            border-left: 5px solid red;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+       }
+/*------------------------********************************-------------------------*/
+
+
+
+       /*----------------rigestration details--------------*/
+      
+        #rigestration{
+            position: relative;
+
+        }
+        #rigestration1{
+            height: 75vh;
+            background-color:  #35A29F;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        #rigestration2{
+            background-color: #0B666A;
+            color: white;
+            width: 200px;
+            margin: 10px;
+            border-radius: 5px;
+            border-left: 5px solid red;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+        }
+
+        /*------------------------********************************-------------------------*/
+
+        /*----------------displayblocking  details--------------*/
+
+        #dashboard:target, #attendance:target, #regular:target, #self:target, #rigestration:target, #bca-attendancereport:target{
+         display: block;
+         }
+
+        #dashboard, #attendance, #regular, #self, #rigestration, #bca-attendancereport{
+         display: none;
+        }
+        .dash-details{
+            display: grid;
+            grid-template-rows: 1fr 6fr;
+        }
+        .header{
+            background-color: white;
+            height: 13vh;
+            top: 0;
+        }
+       /*------------------dropdown------------------*/
+       .dropdown {
+          position: relative;
+        }
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #0B666A;
+        min-width: 160px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        z-index: 1;
+        width: 200px;
+        }
+        .dropdown-content a {
+      color: #F0F5F9;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+      color: #97FEED;
+    }
+    .sub-link2 a{
+        text-decoration: none;
+        /* color: #F0F5F9; */
+    }
+    .sub-link2 ul li a:hover{
+        color: #1E2022;
+        /* color: #F0F5F9; */
+    }
+
+    ul.no-bullets{
+        list-style-type: none;
+
+      }
+      #a1:hover{
+        color:#1E2022;
+      }
+      #al{
+        color: #F0F5F9;
+      }
+      .dropdown-content a:hover{
+            color: #1E2022;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            border-left: 5px solid red;
+            border-radius: 5px;
+      }
+      .img{
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        margin-left: 80px;
+        border: 2px solid white;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+        background-color: white;
+        margin-top: -40px;
+      }
+      .img img{
+        width: 100px;
+        height: 100px;
+        border-radius: 60%;
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+      }
+      .img_aj{
+        border-radius: 50%;
+        width: 65px;
+        height: 65px;
+        border: 3px solid white;
+        float: right;
+        margin-top: 5px;
+        margin-right: 10px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        cursor: pointer;
+      }
+      .img_aj img{
+        width: 65px;
+        height: 65px;
+        border-radius: 50px;
+      }
+      /*-------------------attendance-report---------------------------*/
+      .bca1{
+            background-color: #0B666A;
+            color: white;
+            width: 200px;
+            margin: 10px;
+            border-radius: 5px;
+            border-left: 5px solid red;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
+
+      .bca2{
+        height: 75vh;
+        background-color: #35A29F;
+        margin: 12px;
+        border-radius: 8px;
+        overflow: scroll;
+
+      }
+      /*------------------signup details---------------------------*/
+      .signup-container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            padding: 20px;
+            margin-left: 400px;
+            margin-top: 38px;
+            position: absolute;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+        }
+
+        .signup-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .signup-form input,
+        .signup-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .signup-form .role-dependent-input {
+            display: none;
+        }
+
+        .signup-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #071952;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+        }
+
+        .signup-form button:hover {
+            background-color: #97FEED;
+            color: #071952;
+        }
+
+        .signup-form p {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .signup-form a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        .signup-form a:hover {
+            text-decoration: underline;
+        }
+
+        .forgot-password {
+            color: #777;
+            font-size: 14px;
+            margin-top: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .google-button {
+            background-color: #4285F4;
+            color: #fff;
+        }
+        /*------------------------********************************-------------------------*/
+       
+
+      /*-----------------------attendance-table--------------*/
+      .bca2 table{
+        border-collapse: collapse;
+        background-color: white;
+        margin: 15px;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+      }
+      .bca2 th{
+        font-weight: bolder;
+        background-color: #071952;
+        color: #97FEED;
+      }
+     .bca2 table td,th{
+        border: 1px solid #071952;
+        width: 65vw;
+        text-align: left;
+        padding: 20px;
+      }
+      /*-------------------attendance-button----------------*/
+      .view{
+        padding: 8px;
+        color: white;
+        background-color: #071952;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        text-decoration: none;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      }
+      .view:hover{
+        background-color: #97FEED;
+        color: #071952;
+      }
+      .edit{
+        padding: 8px;
+        color: white;
+        background-color: #0B666A;
+        font-size: 15px;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      }
+      .edit:hover{
+        background-color: #97FEED;
+        color: #071952;
+      }
+      .delete{
+        padding: 8px;
+        color: white;
+        background-color: red;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        font-size: 15px;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      }
+      .delete:hover{
+        background-color: #97FEED;
+        color: #071952;
+      }
+      .insert{
+        padding: 8px;
+        color: #071952;
+        background-color: #97FEED;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        width: 150px; 
+        margin-left: 20px;
+      }
+      .insert:hover{
+        background-color: red;
+        color: white;
+      }
+	/*------------------logout process----------------------------------*/
+	.dropbtn1 {
+  margin-left:-5px;
+  width:75px;
+  height:75px;
+  border-radius:60%;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.dropdown1{
+position:relative;
+display:inline-block;
+}
+
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color:white;
+  border-radius:15px;
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.dropdown-content1 a {
+  color: #071952;
+  padding: 16px 5px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content1 a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+
+        /*------------------------********************************-------------------------*/
+
+    </style>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+<body>
+
+<!-------------------------------------------------body-container(start)---------------------------------------------------->
+
+    <div class="body-container">
+
+        <!---------------------side navebar details(start)--------------------------->
+        <div class="navebar">
+                <div class="aj">
+                    <h1 style="color:#52616B; margin-top: 20px;  margin-right: 10px; text-decoration: none; text-align: center;"><a href="https://www.anjaconline.org/" style="color: white; text-decoration: none;  text-shadow: 2px 2px 4px #000000;">ANJAC</a></h1>
+
+                    <br><br><hr>
+                </div>
+                <div class="img-name">
+                    <div class="img">
+                        <img src="alogo.avif">
+                    </div>
+                </div>
+
+             <!-------------------navebar details link tages--------------------->
+                <div class="link">
+                    <div class="sub-link1">
+              		 <a id="dash" href="#dashboard">Dashboard</a><br><br><br>
+                    </div>
+                    <div class="sub-link1">
+                        <a id="attend"href="#attendance">My Attendance</a><br><br><br>
+                    </div>
+                    <div class="sub-link1">
+                        <a id="attend"href="">TimeTable</a>
+                    </div>
+                </div>
+        </div>
+            <!-----------------------------sidenavebar details (end)--------------------------------->
+
+    <!---------------------------------------------------------------------------------------------------------------->
+
+        <!-------------------------------over all dashboard container details(start)-------------------------------->
+
+
+        <div class="dash-details">
+            <!--------header details(start)----->
+            <div class="header" style="box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;">
+                <div class="img_aj">
+                    <button id="mybtn1" class="dropbtn1"> <img src="alogo.avif" onclick="logout()"></button>
+                    <div id="myDropdown1" class="dropdown-content1">
+			<a href="loggoutprocess.php">Logout</a>
+		   </div>
+		</div>
+            </div>
+            <!------header details(end)----->
+
+
+
+            <!------------------------- dashboard details(start)------------------>
+
+            <div class="dashboard-container">
+                <!-------dashboard details(start)-------->
+                <div id="dashboard">
+                    <div id="dashboard1">
+                        <h4 style="margin-left: 20px;">Dashboard</h4>
+
+                    </div>
+                    <div class="dashboard2">
+
+                    </div>
+                    <div class="dashboard3">
+                           <div class="present">
+                            <h2 style="text-align: center;">DAY PRESENT</h2>
+                           </div>
+                           <div class="absent">
+                            <h2 style="text-align: center;">DAY ABSENT</h2>
+                           </div>
+                           <div class="hours">
+                            <h2 style="text-align: center;">HOURS </h2>
+                           </div> 
+                    </div>
+                </div>
+
+                <!------------Rigestration details(start)------------>
+
+                <div id="department">
+
+                    <div id="regular">
+                        <div id="regular-departments">
+                        <h4 style="margin-left: 20px;">Attendance Report</h4>
+                        </div>
+                    </div>
+
+                    <div id="self">
+                        <div id="self1">
+                            <h4 style="margin-left: 20px;">ReadTag</h4>
+                        </div>
+                        <div id="self-departments">
+                            <div class="self">
+
+                                <p id="getUID" hidden></p>
+            
+                                <br>
+            
+                                <div id="show_user_data" style="margin-left: 350px; margin-top: 30px; width:350px; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;">
+                                    <form>
+                                        <table  width="350"  bordercolor="white" align="center"  cellpadding="0" cellspacing="1"  bgcolor="#071952" style="padding: 2px">
+                                            <tr>
+                                                <td  height="30" align="center"  bgcolor="white" style="padding: 5px;"><font  color="#071952">
+                                                    <b>Student Details</b>
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td  bgcolor="white">
+                                                    <table width="350" height="300" border="0" align="center" style="padding: 2px;" cellpadding="5"  cellspacing="0">
+                                                        <tr>
+                                                            <td width="113" align="left" class="lf">Roll No</td>
+                                                            <td style="font-weight:bold">:</td>
+                                                            <td align="left">--------</td>
+                                                        </tr>
+                                                        <tr bgcolor="white">
+                                                            <td align="left" class="lf">Name</td>
+                                                            <td style="font-weight:bold">:</td>
+                                                            <td align="left">--------</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left" class="lf">Gender</td>
+                                                            <td style="font-weight:bold">:</td>
+                                                            <td align="left">--------</td>
+                                                        </tr>
+                                                        <tr bgcolor="white">
+                                                            <td align="left" class="lf">Email</td>
+                                                            <td style="font-weight:bold">:</td>
+                                                            <td align="left">--------</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left" class="lf">Department</td>
+                                                            <td style="font-weight:bold">:</td>
+                                                            <td align="left">--------</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div> 
+                                <h3 id="blink" style="margin-left: 330px; margin-top: 10px;"><font color="black" style="position: absolute; " >Please Scan Tag to Display ID or User Data</font></h3>
+            
+            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------Rigestration details(end)------------>
+
+
+                <!-------------attendance details(start)-------------->
+
+                <div id="attendance">
+                    <div id="attendance1">
+                    <h4 style="margin-left: 20px;">Attendance Report</h4>
+                    </div>
+                    <div id="attendance2">
+                        <div id="attendance-bca">
+                            <h3 style="margin-left: 10px;">DEPARTMENT OF BCA</h3><br><br>
+                            <a href="#bca-attendancereport" id="report1" style="text-decoration: none; color: #97FEED; width: 200px;">BCA</a> 
+
+                        </div>
+                        <div id="attendance-mca">
+                            <h3 style="margin-left: 10px;">DEPARTMENT OF MCA</h3><br><br>
+                            <a href="#mca-attendancerport" id="report1" >MCA</a>
+                        </div>
+                        <div id="attendance-msc">
+                            <h3 style="margin-left: 10px;">DEPARTMENT OF BSc CS </h3><br><br>
+                            <a href="#msc-attendancereport" id="report1">BSc CS</a>
+                        </div>
+                        <div id="attendance-bba">
+                            <h3 style="margin-left: 10px;">DEPARTMENT OF BBA</h3><br><br>
+                            <a href="#bba-attendancereport" id="report1">BBA</a>
+                        </div>
+                        <div id="attendance-bcom">
+                            <h3 style="margin-left: 10px;">DEPARTMENT OF BCOM</h3><br><br>
+                            <a href="#bcom-attendancereport" id="report1">BCOM</a>
+                        </div>
+                        <div id="attendance-che">
+                            <h3 style="margin-left: 4px;">DEP OF CHEMISTRY</h3><br><br>
+                            <a href="#che-attendancereport" id="report1">CHEMISTRY</a>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-------------attendance details(end)-------------->
+
+
+                <!------------timetable details(start)-------------->
+
+                <div id="rigestration">
+                    <div id="rigestration2">
+                        <h4 style="margin-left: 20px;">Registration Form</h4>
+                        </div>
+                    <div id="rigestration1">
+                        <div class="signup-container">
+                                <h2>Rigestration</h2>
+                                <form class="signup-form" method="post">
+                                    <input type="text" placeholder="Full Name" name="n1"required>
+                                    <input type="text" placeholder="Student ID" name="n4">
+                                    <input type="email" placeholder="Email" name="n2" required>
+                                    <input type="password" placeholder="Password" name="n5" required>
+                                        <select id="gender" name="gender">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="non-binary">Non-Binary</option>
+                                        </select>
+
+                                    <button type="submit" name="b1">Submit</button>
+                                </form>
+
+                        </div>
+
+                        <script>
+                            function toggleRoleInput() {
+                                var roleSelect = document.getElementById('role');
+                                var roleInput = document.querySelector('.role-dependent-input');
+
+                                if (roleSelect.value === 'student') {
+                                    roleInput.style.display = 'block';
+                                } else{
+                                    roleInput.style.display = '';
+                                }
+                            }
+
+                            
+                        </script>
+                    </div>
+                </div>
+                
+                <!------------timetable details(end)-------------->
+                <div id="bca-attendancereport">
+                    <div class="bca1">
+                        <h4>Department of BCA</h4>
+                    </div>
+                    <div class="bca2">
+                        <table>
+                            <tr>
+                                <th>NAME</th>
+                                <th>ROLLNO</th>
+                                <th>EMAIL ID</th>
+                                <th>PASSWORD</th>
+                                <th>GENDER</th>
+                                <th>VIEW</th>
+                                <th>EDIT</th>
+                                <th>DELETE</th>
+
+                            </tr>
+                            <tr>
+                                <td>senthilnathan</td>
+                                <td>21UL42</td>
+                                <td>senthilnathan@gmail.com</td>
+                                <td>senthil2142</td>
+                                <td>male</td>
+                                <td><a href="#" class="view">VIEW</a></td>
+                                <td><a href="#" class="edit">EDIT</a></td>
+                                <td><a href="#" class="delete">DELETE</a></td>
+                            </tr>
+                            <tr>
+                                <td>anbu</td>
+                                <td>21UL22</td>
+                                <td>anbu@gmail.com</td>
+                                <td>anbu2142</td>
+                                <td>male</td>
+                                <td><a href="#" class="view">VIEW</a></td>
+                                <td><a href="#" class="edit">EDIT</a></td>
+                                <td><a href="#" class="delete">DELETE</a></td>
+                             
+                            </tr>
+                            <tr>
+                                <td>siddique</td>
+                                <td>21UL23</td>
+                                <td>siddique@gmail.com</td>
+                                <td>siddique2142</td>
+                                <td>male</td>
+                                <td><a href="#" class="view">VIEW</a></td>
+                                <td><a href="#" class="edit">EDIT</a></td>
+                                <td><a href="#" class="delete">DELETE</a></td>
+                            </tr>
+                            <tr>
+                                <td>gnana prakash</td>
+                                <td>21UL42</td>
+                                <td>gnanaprakash@gmail.com</td>
+                                <td>prakashl2142</td>
+                                <td>male</td>
+                                <td><a href="#" class="view">VIEW</a></td>
+                                <td><a href="#edit" class="edit">EDIT</a></td>
+                                <td><a href="#" class="delete">DELETE</a></td>
+                            </tr>
+                            <tr>
+                                <td>arsh</td>
+                                <td>21UL35</td>
+                                <td>arsh@gmail.com</td>
+                                <td>arsh2142</td>
+                                <td>male</td>
+                                <td><a href="#" class="view">VIEW</a></td>
+                                <td><a href="#" class="edit">EDIT</a></td>
+                                <td><a href="#" class="delete">DELETE</a></td>
+                            </tr>
+                            <tr>
+                                <td>balavicky</td>
+                                <td>21UL42</td>
+                                <td>bala@gmail.com</td>
+                                <td>bala2142</td>
+                                <td>male</td>
+                                <td><a href="#" class="view">VIEW</a></td>
+                                <td><a href="#" class="edit">EDIT</a></td>
+                                <td><a href="#" class="delete">DELETE</a></td>
+                            </tr>
+                            <tr>
+                                <td>siva</td>
+                                <td>21UL42</td>
+                                <td>siva@gmail.com</td>
+                                <td>sival2142</td>
+                                <td>male</td>
+                                <td><a href="#" class="view">VIEW</a></td>
+                                <td><a href="#" class="edit">EDIT</a></td>
+                                <td><a href="#" class="delete">DELETE</a></td>
+                            </tr>
+                            <tr>
+                                <td>guru</td>
+                                <td>21UL42</td>
+                                <td>guru@gmail.com</td>
+                                <td>guru2142</td>
+                                <td>male</td>
+                                <td><a href="#" class="view">VIEW</a></td>
+                                <td><a href="#" class="edit">EDIT</a></td>
+                                <td><a href="#" class="delete">DELETE</a></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!----------------------------over all dashboard container details(end)------------------------------>
+    </div>
+        <!--------------------------------------overall body-container details(end)------------------------------------>
+
+        <!-------------------------php code------------------>
+        <!-- <?php
+        $servername='localhost';
+        $username="root";
+        $passward="";
+        $dbname="project";
+        if(isset($_POST['b1']))
+        {
+            $name = $_POST['n1'];
+            $email = $_POST['n2'];
+            $role = $_POST['n3'];
+            $id = $_POST['n4'];
+            $pass = $_POST['n5'];
+            $conn =new mysqli($servername, $username, $passward, $dbname);
+            if($conn->connet_error)
+            {
+                die("connection failed".$conn->connect_error);
+            }
+            $sql = "Insert into login_details values('$name','$email','$role','$id','$pass')";
+            $result =$conn->query($sql);
+            if($result == TRUE)
+            {
+                echo "<script>alert('Successfully Account created')</script>";
+                echo "<script>  location.replace('s-dashboard.html')</script>";
+            }
+            else
+            {
+                echo "Error";
+                $conn->close();
+            }
+        } 
+    ?> -->
+    <script src="jquery.min.js"></script>
+        <script>
+            var blink = document.getElementById('blink');
+                setInterval(function() {
+                                blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+                                }, 750); 
+
+        </script>
+	<script>
+		document.getElementById("mybtn1").onclick = function(){
+			myFunction()};
+		 function myFunction()
+				{
+				document.getElementById("myDropdown1").classList.toggle("show");
+				}
+	</script>
+</body>
+</html>
